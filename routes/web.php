@@ -18,5 +18,5 @@ Route::get('shows','ShowsController@index');
 Route::post('shows','ShowsController@store');
 Route::get('list','ShowsController@list');
 Auth::routes();
-
+Route::get('listing', 'ShowsController@searchlist');
 Route::get('/home', 'HomeController@index')->name('home');

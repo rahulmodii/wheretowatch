@@ -28,10 +28,25 @@ class ShowsController extends Controller
     }
     public function list()
     {  
-        
+        $listings='';
         $shows = index::all();
+        if(!empty($shows))
+        {
+            $listings=$shows;
+        }
+        return view('new')->with('listings',$listings);
+    }
+    public function searchlist(Request $request){
         
-        return view('new')->with('shows',$shows);
+        $list = index::Where('showname', 'like', '%' .$request->search . '%')->get();
+
+        
+        $somme='';
+        if(!$list->isEmpty()){
+            $somme=$list;
+                }
+            
+                return view('new')->with('somme',$somme);
     }
     /**
      * Show the form for creating a new resource.
@@ -50,7 +65,7 @@ class ShowsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
         $flight = new index;
         $flight->showname = $request->shows;
         $flight->platformname = $request->platform;

@@ -9,7 +9,7 @@
        </tr>
        <tr>
         <td>platform</td>
-        <td><select name="platform" >
+        <td><select name="platform" multiple>
             @foreach ($flights as $flight)
             <option value={{$flight->platforms}}>{{$flight->platforms}}</option>
             @endforeach
