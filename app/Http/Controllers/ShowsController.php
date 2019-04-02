@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\platforms;
 use App\index;
 use Illuminate\Support\Facades\Auth;
+use GuzzleHttp\Exception\GuzzleException;
+use GuzzleHttp\Client;
 class ShowsController extends Controller
 {
     /**
@@ -116,5 +118,15 @@ class ShowsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function showdetails($title){
+    
+        $client = new \GuzzleHttp\Client();
+        $request = $client->request('GET','http://www.omdbapi.com/?apikey=68ec73bc&t='.$title.'');
+        $response = $request->getBody();
+        $response = $request->getBody()->getContents();
+        // dd($response);
+        return view('details')->with('response',json_decode($response, true));
     }
 }

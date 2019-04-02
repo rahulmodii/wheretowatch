@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'ShowsController@list');
+Route::get('/details/{title}','ShowsController@showdetails');
 Route::get('create','platformcontoller@index');
 Route::post('create','platformcontoller@store');
 Route::get('shows','ShowsController@index');
