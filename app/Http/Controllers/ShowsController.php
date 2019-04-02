@@ -30,6 +30,7 @@ class ShowsController extends Controller
     }
     public function list()
     {  
+        
         $listings='';
         $shows = index::all();
         if(!empty($shows))
@@ -128,5 +129,9 @@ class ShowsController extends Controller
         $response = $request->getBody()->getContents();
         // dd($response);
         return view('details')->with('response',json_decode($response, true));
+    }
+
+    public function admin(){
+        return view('admin');
     }
 }

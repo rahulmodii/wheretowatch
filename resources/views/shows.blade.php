@@ -19,7 +19,7 @@
      </tr>
        <tr>
           <td colspan = '2'>
-             <input type = 'submit' value = "Add student"/>
+             <input type = 'submit' value = "Add shows"/>
           </td>
        </tr>
     </table>

@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/admin','ShowsController@admin')->middleware('auth');
 Route::get('/', 'ShowsController@list');
 Route::get('/details/{title}','ShowsController@showdetails');
 Route::get('create','platformcontoller@index');
@@ -21,3 +21,4 @@ Route::get('list','ShowsController@list');
 Auth::routes();
 Route::get('listing', 'ShowsController@searchlist');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout',function(){Auth::logout();});
