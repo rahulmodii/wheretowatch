@@ -12,14 +12,15 @@
 
 @else
 @foreach ($somme as $some)
-<pre>  <a href="/details/{{$some->showname}}">{{$some->showname}}</a></pre> 
+
+<pre>  <a href="/details/{{$some->showname}}">{{$some->showname}}</a>  available on {{$some->platformname}}</pre> 
 @endforeach
 
 @endif
 
 @if(!empty($listings))
 @foreach ($listings as $listing)
-  <pre>  <a href="/details/{{$listing->showname}}">{{$listing->showname}}</a></pre>
+  <pre>  <a href="/details/{{$listing->showname}}">{{$listing->showname}}</a>  available on {{$listing->platformname}}</pre>
 @endforeach
 
 @endif
