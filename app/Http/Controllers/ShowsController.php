@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\platforms;
 use App\index;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client;
 class ShowsController extends Controller
@@ -30,14 +31,16 @@ class ShowsController extends Controller
     }
     public function list()
     {  
-        
+        $visits=Redis::incr('visits');
         $listings='';
         $shows = index::all();
         if(!empty($shows))
         {
             $listings=$shows;
         }
-        return view('new')->with('listings',$listings);
+        return view('new')->with('listings',$listings)->with('visits',$visits);
+        // return view ('layout.app')->with('visits',$visits);
+        
     }
     public function searchlist(Request $request){
         

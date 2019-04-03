@@ -7,6 +7,7 @@
 <button type="submit" class="btn btn-success">Search</button>
 </form>
 </div>
+<h1>site hits{{$visits}}</h1>
 <h1>Latest Shows here</h1><hr>
 @if(empty($somme))
 
